@@ -13,30 +13,30 @@
        <div class="blob">        </div>
 
             <div class="form-container">
-                <form class="form-group">
+                <form class="form-group" id="form">
                     <h3>Sign-up</h3>
                     <div class="form-control">
                         <label class="form-label" for="username">User name</label>
                         <input type="text"  placeholder="Enter Username" id="username" name="username"/>
-                        <small>Error message</small>
+                        <small id="username-message"></small>
                     </div>
                     <div class="form-control">
                         <label class="form-label" for="email">Email</label>
                         <input type="text"  placeholder="Enter email" id="email" name="email"/>
-                        <small>Error message</small>
+                        <small id="email-message"></small>
                     </div>
                     <div class="form-control">
                         <label class="form-label" for="password">Password</label>
                     <input type="password"   id="password" name="password" placeholder="Enter password"/>
-                    <small>Error message</small>
+                    <small id="password-message"></small>
                     </div>
                     <div class="form-control">
                         <label class="form-label" for="password2">Confirm Password</label>
                         <input type="password"   id="password2" name="password2" placeholder="Confirm password"/>
-                        <small>Error message</small>
+                        <small id="password2-message"></small>
                     </div>
                     <div class="form-control">
-                    <button type="submit" class="sign-up-btn"><i class="fa-solid fa-user-plus"></i> Sign Up</button>
+                    <button type="submit" class="sign-up-btn" id="sign-up-btn"><i class="fa-solid fa-user-plus"></i> Sign Up</button>
 
                     </div>
                 </form>
