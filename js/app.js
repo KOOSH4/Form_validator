@@ -22,59 +22,53 @@ class User{
 //function
 function submit(event){
     event.preventDefault();
-    const userNameInput = username.value;
-    const userCheck = usernameValidator(userNameInput);
-    const emailInput = email.value;
-    //emailValidator(emailInput);
-    const passwordInput = password.value;
-    const passCheck = passwordValidator(passwordInput); 
-    const password2Input = password2.value;
-    const pass2Check = password2Validator(passwordInput, password2Input); 
-    if(userCheck && passCheck && pass2Check){
-        const user1 = new User(userNameInput,emailInput,passwordInput);
-        console.log("object created");
-    }
-    username.value = "";
-    email.value = "";
-    password.value = "";
-    password2.value = "";
 
+    if(username.value.length == 0){
+        const userCheck = errorMessage(username, userMessage, 'Usename required!');
+    }else if(username.value.length < 4){
+        const userCheck = errorMessage(username, userMessage, 'Username must have at least 4 Characters!');
+    }  
+     else{
+        const userCheck = successMessage(username, userMessage,'');
+    }
+
+    if(email.value.length === 0){
+        const emailCheck = errorMessage(email, emailMessage, 'Email required!');
+    }else if(email.value.length < 4){
+        const emailCheck = errorMessage(email, emailMessage, 'Email must have at least 4 Characters!');
+    }  
+     else{
+        const emailCheck = successMessage(email, emailMessage, '');
+    }
+    if(password.value.length == 0){
+        const passwordCheck = errorMessage(password, passwordMessage, 'password required!');
+    }else if(password.value.length < 4){
+        const passwordCheck = errorMessage(password, passwordMessage, 'password must have at least 4 Characters!');
+    }  
+     else{
+        const passwordCheck = successMessage(password, passwordMessage, '');
+    }
+    if(password2.value.length == 0){
+        const password2Check = errorMessage(password2, password2Message, 'password required!');
+    }else if(password2.value !== password.value){
+        const password2Check = errorMessage(password2, password2Message, 'Passwords are not the same!');
+    }  
+     else{
+        const password2Check = successMessage(password2, password2Message, '');
+    }
+    if(userCheck && emailCheck && passwordCheck){
+        console.log("hooora");
+    }
 }
-function usernameValidator(event){
-    if(event.length < 4){
-        userMessage.innerHTML = "at least 4 Character!";
-        username.classList.remove('valid');
-        username.classList.toggle('unvalid');
-        return 0;
-    }
-    else{
-        userMessage.innerHTML = "";
-        username.classList.remove('unvalid');
-        username.classList.toggle('valid');
-        return 1;
-    }
+function errorMessage(event1,event2,message){
+    event2.innerHTML = message;
+    event1.classList.remove('valid');
+    event1.classList.add('unvalid');
+    return 0;
 }
-function passwordValidator(event){
-    if(event.length < 6){
-        passwordMessage.innerHTML = "Password length must be at least 6 digit!";
-        username.classList.toggle('valid');
-        username.classList.toggle('unvalid');
-        return 0;
-    }
-    else{
-        passwordMessage.innerHTML = "";
-        return 1;
-    }
-}
-function password2Validator(event1, event2){
-    if(event1 != event2){
-        password2Message.innerHTML = "Passwords are not match!";
-        username.classList.toggle('valid');
-        username.classList.toggle('unvalid');
-        return 0;
-    }
-    else{
-        password2Message.innerHTML = "";
-        return 1;
-    }
+function successMessage(event1,event2,message){
+    event2.innerHTML = message;
+    event1.classList.remove('unvalid');
+    event1.classList.add('valid');
+    return 1;
 }

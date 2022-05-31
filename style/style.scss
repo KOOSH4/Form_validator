@@ -88,15 +88,16 @@ main{
         display:block;
     }
     small{
-        color: rgb(68, 68, 68);
+        color: rgb(206, 36, 36);
         display:block;
     }
 }
 .valid{
-    box-shadow: 0px 0px 16px 2px #36f236b7;            
+    box-shadow: 0px 0px 16px 2px #36f236b7; 
+               
 }
 .unvalid{
-    box-shadow: 0px 0px 16px 2px #ff5555b7;            
+    box-shadow: 0px 0px 16px 2px #ff5555b7;        
 }
 .sign-up-btn {
 width: 100%;
