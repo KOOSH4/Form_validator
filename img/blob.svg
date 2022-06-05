@@ -1,4 +1,9 @@
-<?xml version="1.0" standalone="no"?>
-<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-  <path fill="#0F62FE" d="M50.1,-60.7C58.5,-52.6,54.6,-30.8,53.6,-12.9C52.7,5,54.9,19,49.3,28.4C43.8,37.9,30.6,42.8,17.6,46.8C4.7,50.8,-8,53.8,-23.4,53.1C-38.7,52.3,-56.8,47.7,-64.6,36.3C-72.5,24.8,-70.2,6.4,-63,-7.1C-55.9,-20.7,-44,-29.4,-32.7,-37C-21.4,-44.6,-10.7,-51,5.1,-57C20.8,-63.1,41.7,-68.8,50.1,-60.7Z" transform="translate(100 100)" />
-</svg>
+<?xml version="1.0" encoding="utf-8"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="941" preserveAspectRatio="xMidYMid" viewBox="0 0 1920 941" style="z-index:1;display:block;background-color:rgb(255, 255, 255);animation-play-state:paused" ><g transform="translate(960,470.5) scale(1,1) translate(-960,-470.5)" style="animation-play-state:paused" ><linearGradient id="lg-0.017347915161019856" x1="0" x2="1" y1="0" y2="0" style="animation-play-state:paused" ><stop stop-color="#ff00ff" offset="0" style="animation-play-state:paused" ></stop>
+
+  
+<stop stop-color="#00ffff" offset="1" style="animation-play-state:paused" ></stop></linearGradient>
+<path d="M 0 0 L 0 781.439 Q 192 750.894 384 709.73 T 768 746.431 T 1152 644.002 T 1536 497.021 T 1920 384.883 L 1920 0 Z" fill="url(#lg-0.017347915161019856)" opacity="0.4" style="opacity:0.4;animation-play-state:paused" ></path>
+<path d="M 0 0 L 0 877.481 Q 192 835.228 384 811.116 T 768 695.932 T 1152 585.255 T 1536 516.897 T 1920 408.601 L 1920 0 Z" fill="url(#lg-0.017347915161019856)" opacity="0.4" style="opacity:0.4;animation-play-state:paused" ></path>
+<path d="M 0 0 L 0 885.516 Q 192 795.677 384 762.948 T 768 618.894 T 1152 514.561 T 1536 419.925 T 1920 276.372 L 1920 0 Z" fill="url(#lg-0.017347915161019856)" opacity="0.4" style="opacity:0.4;animation-play-state:paused" ></path>
+<path d="M 0 0 L 0 867.069 Q 192 803.536 384 770.968 T 768 608.355 T 1152 504.476 T 1536 560.928 T 1920 355.446 L 1920 0 Z" fill="url(#lg-0.017347915161019856)" opacity="0.4" style="opacity:0.4;animation-play-state:paused" ></path>
+<path d="M 0 0 L 0 887.591 Q 192 795.83 384 755.775 T 768 630.494 T 1152 518.594 T 1536 498.671 T 1920 356.196 L 1920 0 Z" fill="url(#lg-0.017347915161019856)" opacity="0.4" style="opacity:0.4;animation-play-state:paused" ></path></g></svg>
