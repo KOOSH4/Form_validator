@@ -7,6 +7,11 @@
           box-sizing: border-box;
 }
 
+:root {
+  --valid: #2ecc70c0;
+  --unvalid: #e74d3cb4;
+}
+
 body {
   background-color: #8BC6EC;
   background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
@@ -47,8 +52,7 @@ main {
 }
 
 .form-container {
-  min-width: 20vw;
-  max-width: 30vw;
+  max-width: 25rem;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -88,6 +92,7 @@ main {
       -ms-flex-align: center;
           align-items: center;
   margin: 1rem;
+  padding: 0 1rem 0 1rem;
 }
 
 .form-group h3 {
@@ -101,16 +106,16 @@ main {
 
 .form-control {
   width: 100%;
-  margin: 0.5rem 0;
-  padding: 0 1.5rem;
+  margin-bottom: 0.7rem;
+  padding-bottom: 0.7rem;
   color: #444444;
+  position: relative;
 }
 
 .form-control input {
   width: 100%;
-  border: none;
+  border: 1px rgba(255, 255, 255, 0) solid;
   border-radius: 5px;
-  outline: none;
   background-color: rgba(180, 219, 254, 0.527);
   text-indent: 0.25rem;
   height: 2rem;
@@ -120,28 +125,40 @@ main {
 }
 
 .form-control input:focus {
-  -webkit-box-shadow: 0px 0px 16px 2px #10dfff84;
-          box-shadow: 0px 0px 16px 2px #10dfff84;
+  outline: 0;
+  border-color: #777;
 }
 
 .form-control label {
   color: #444444;
-  display: block;
 }
 
 .form-control small {
-  color: #ce2424;
-  display: block;
+  color: var(--unvalid);
+  visibility: hidden;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
-.valid {
-  -webkit-box-shadow: 0px 0px 16px 2px #36f236b7;
-          box-shadow: 0px 0px 16px 2px #36f236b7;
+.form-control.valid input {
+  -webkit-box-shadow: 0px 0px 16px 2px var(--valid);
+          box-shadow: 0px 0px 16px 2px var(--valid);
+  border-color: var(--valid);
 }
 
-.unvalid {
-  -webkit-box-shadow: 0px 0px 16px 2px #ff5555b7;
-          box-shadow: 0px 0px 16px 2px #ff5555b7;
+.form-control.valid small {
+  visibility: hidden;
+}
+
+.form-control.unvalid input {
+  -webkit-box-shadow: 0px 0px 16px 2px var(--unvalid);
+          box-shadow: 0px 0px 16px 2px var(--unvalid);
+  border-color: var(--unvalid);
+}
+
+.form-control.unvalid small {
+  visibility: visible;
 }
 
 .sign-up-btn {
