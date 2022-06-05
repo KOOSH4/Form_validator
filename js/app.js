@@ -5,67 +5,84 @@ const password = document.querySelector("#password");
 const password2 = document.querySelector("#password2");
 const form = document.querySelector("#form");
 //eventListener
-form.addEventListener("submit", submit);
-// class
-class User {
-  constructor(userName, Email, Password) {
-    this.userName = userName;
-    this.Email = Email;
-    this.Password = Password;
-  }
-}
+form.addEventListener("submit", function submit(event) {
+    event.preventDefault();
+    checkRequired([username, email, password, password2]);
+    checkLenght(username, 5, 20);
+    isValidEmail(email);
+    isValidPassword(password);
+  });
+
+
+
 //functions
-function isValidEmail(email) {
+// Password Validator
+
+function isValidPassword(input){
+    var regularExpression  = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{4,35}$/;
+    if(!input.value.match(regularExpression)){
+        showError(input, `Password must include a-Z,0-9 and Speciels`);
+
+    }
+    else{
+        showSuccess(input);
+    }
+}
+// Email validator
+function isValidEmail(input) {
   var validRegex =
     /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-  if (email.value.match(validRegex)) {
-    return true;
-  } else {
-    return false;
-  }
+  if (input.value.trim().match(validRegex)) {
+      showSuccess(input)
+    } else {
+        showError(input, `${getFieldName(input)} is unvalid`);
+    }
 }
-function submit(event) {
-  event.preventDefault();
+// Check Requierd
+function checkRequired(inputArr){
+    inputArr.forEach((input)=>{
+        if(input.value.trim() === ''){
+            showError(input, `${getFieldName(input)} is required`);
+        }
+        else{
+            showSuccess(input);
+        }
+    });
+    
+}
+// Check Length
 
-  if (username.value.length == 0) {
-    errorMessage(username, "Usename is required!");
-  } else if (username.value.length < 4) {
-    errorMessage(username, "Username must have at least 4 Characters!");
-  } else {
-    successMessage(username);
-  }
+function checkLenght(input, min, max){
+    if(input.value.length < min){
+        showError(input ,`${getFieldName(input)} must be at least ${min} Charachters!`);
+    }
+    else if(input.value.length > max){
+        showError(input ,`${getFieldName(input)} must be less than ${max} Charachters!`);
+    }
+    else{
+        showSuccess(input);
+    }
+}
+// Check Password Match
+function checkPasswordMatch(input1, input2){
+    if(input1.value !== input2.value){
+        showError(input2 ,`Passwords do not match!`);
+    } 
+}
+// Get Field Name
+function getFieldName(input){
+    return input.id.charAt(0).toUpperCase()+input.id.slice(1);
+}
+// Show Error
+function showError(input , message){
+    const formControl = input.parentElement;
+    formControl.className = 'form-control unvalid'
+    small = formControl.querySelector('small');
+    small.innerHTML = message;
+}
+// Show Success
+function showSuccess(input){
+    const formControl = input.parentElement;
+    formControl.className = 'form-control valid'
+}
 
-  if (email.value.length === 0) {
-    errorMessage(email, "Email is required!");
-  } else if (!isValidEmail(email)) {
-    errorMessage(email, "Unvalid Email Address!");
-  } else {
-    successMessage(email);
-  }
-  if (password.value.length == 0) {
-    errorMessage(password, "password is required!");
-  } else if (password.value.length < 4) {
-    errorMessage(password, "password must have at least 4 Characters!");
-  } else {
-    successMessage(password);
-  }
-  if (password2.value.length == 0) {
-    errorMessage(password2, "password is required!");
-  } else if (password2.value !== password.value) {
-    errorMessage(password2, "Passwords are not the same!");
-  } else {
-    successMessage(password2);
-  }
-}
-function errorMessage(event, message) {
-  const formControl = event.parentElement;
-  const small = formControl.querySelector("small");
-  small.innerHTML = message;
-  formControl.className = "form-control unvalid";
-  return 0;
-}
-function successMessage(event) {
-  const formControl = event.parentElement;
-  formControl.className = "form-control valid";
-  return 1;
-}
